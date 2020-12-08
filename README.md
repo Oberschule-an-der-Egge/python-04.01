@@ -1,8 +1,10 @@
-# Projekt 4: Todo-Liste
+# Projekt 04.01: Todo-Liste
 
 ![image](04-screenshot.png)
 
 Versucht, das abgebildete Programm selbst zu bauen. Der **weiße** Text ist die Ausgabe des Programms. Der **grüne** Text wird vom Benutzer eingegeben.
+
+Eine Version ohne Persistenz (dafür aber mit der Bonusaufgabe "Löschen") findet ihr in `program.py`.
 
 
 ## Das könnte dir helfen:
