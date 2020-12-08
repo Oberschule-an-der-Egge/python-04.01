@@ -1,4 +1,7 @@
 def main():
+    """
+    Hauptfunktion, wird am Ende der Datei aufgerufen.
+    """
     print_title()
     run_event_loop()
 
@@ -29,6 +32,7 @@ def run_event_loop():
     print('Willkommen in deiner TODO-Liste! Was möchtest du tun?')
 
     while True:
+        print()
         selection = input('Einträge [A]nzeigen, [H]inzufügen, [L]öschen oder B[e]enden? ')
 
         if selection in cmd_anzeigen:
@@ -51,7 +55,6 @@ def present(todo_liste):
     :param todo_liste: Benötigt das aktuelle list()-Objekt.
     """
 
-    print()
     print(f'Du hast {len(todo_liste)} Einträge auf der Liste.')
     for index, item in enumerate(todo_liste):
         print(f'{index} - {item}')
@@ -76,9 +79,14 @@ def remove(todo_liste):
 
     for index, item in enumerate(todo_liste):
         print(f'{index} - {item}')
-    item_index = int(input('Was soll gelöscht werden? '))
-    todo_liste.pop(item_index)
-    print(f'{item_index} wurde gelöscht.')
+
+    cmd_index = int(input('Was soll gelöscht werden? '))
+
+    if cmd_index <= len(todo_liste) - 1:
+        todo_liste.pop(cmd_index)
+        print(f'Eintrag {cmd_index} wurde gelöscht.')
+    else:
+        print(f'Eingabe "{cmd_index}" unklar. Es wurde nichts gelöscht.')
 
 
 main()
