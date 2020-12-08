@@ -55,4 +55,4 @@ Um Dateien zu schreiben und zu lesen nehmen wir `open()` und den Kontextmanager 
 
 ## Bonusaufgabe:
 
-Die Einträge sollen mit einer Deadline versehen werden: `Geschenke kaufen [18.12.2020]`
+Die Einträge sollen mit einer Deadline versehen werden: `- Geschenke kaufen [18.12.2020]`
