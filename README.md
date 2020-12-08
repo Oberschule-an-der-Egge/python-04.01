@@ -36,16 +36,18 @@ Code kann mit einfachen Kommentaren `#`, aber auch gezielt mit einer Dokumentati
         """
         # ...hier folgt Code...
 
-**Dateien bearbeiten**
+**Dateien bearbeiten - Pfade**
 
 Betriebssysteme (Windows, MacOS, Linux) benutzen unterschiedliche Pfadangaben. Mit der Standard-Bibliothek `os` können diese Pfade unabhängig vom Betriebssystem erstellt werden.
 
     import os
-    dateipfad_manuell = os.path.join('user', 'desktop', 'photo.jpg')
-    # dateipfad_manuell -> 'user/desktop/photo.jpg' (Linux) oder 'user\desktop\photo.jpg' (Windows)
-    dateipfad_voll = os.path.abspath('photo.jpg')
-    # dateipfad_voll -> /home/tim/desktop/photo.jpg (Linux) oder 'C:\Users\Tim\Desktop\photo.jpg' (Windows)
-    
+     
+    dateipfad = os.path.abspath('photo.jpg')
+    # -> /home/tim/desktop/photo.jpg (Linux) oder 
+    # -> 'C:\Users\Tim\Desktop\photo.jpg' (Windows)
+   
+**Dateien bearbeiten - Input/Output**
+
 Um Dateien zu schreiben nehmen wir `open()` und den Kontextmanager `with .. as ..:`
 
     with open(dateipfad, 'r') as datei_gelesen:
