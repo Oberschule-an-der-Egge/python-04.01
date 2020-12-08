@@ -36,7 +36,7 @@ Code kann mit einfachen Kommentaren `#`, aber auch gezielt mit einer Dokumentati
         """
         # ...hier folgt Code...
 
-**Dateien bearbeiten - Pfade**
+**Dateien bearbeiten**
 
 Betriebssysteme (Windows, MacOS, Linux) benutzen unterschiedliche Pfadangaben. Mit der Standard-Bibliothek `os` können diese Pfade unabhängig vom Betriebssystem erstellt werden.
 
@@ -44,11 +44,9 @@ Betriebssysteme (Windows, MacOS, Linux) benutzen unterschiedliche Pfadangaben. M
      
     dateipfad = os.path.abspath('photo.jpg')
     # -> /home/tim/desktop/photo.jpg (Linux) oder 
-    # -> 'C:\Users\Tim\Desktop\photo.jpg' (Windows)
+    # -> C:\Users\Tim\Desktop\photo.jpg (Windows)
    
-**Dateien bearbeiten - Input/Output**
-
-Um Dateien zu schreiben nehmen wir `open()` und den Kontextmanager `with .. as ..:`
+Um Dateien zu schreiben und zu lesen nehmen wir `open()` und den Kontextmanager `with .. as ..:`
 
     with open(dateipfad, 'r') as datei_gelesen:
         text = datei_gelesen.readlines()
