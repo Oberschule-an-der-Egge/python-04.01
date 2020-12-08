@@ -48,10 +48,14 @@ Betriebssysteme (Windows, MacOS, Linux) benutzen unterschiedliche Pfadangaben. M
    
 Um Dateien zu schreiben und zu lesen nehmen wir `open()` und den Kontextmanager `with .. as ..:`
 
-    with open(dateipfad, 'r') as datei_gelesen:
+    with open(dateipfad) as datei_in:
         text = datei_gelesen.readlines()
-        # text -> ['Zeile eins\n', 'Zeile zwei\n', ...]
+     
+    # text -> ['Zeile eins\n', 'Zeile zwei\n', ...]
 
+
+    with open(dateipfad) as datei_out:
+        datei_out.write('Zeile eins\n')
 
 ## Bonusaufgabe:
 
