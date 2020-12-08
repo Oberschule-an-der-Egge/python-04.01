@@ -1,4 +1,4 @@
-# Projekt 04.01: Todo-Liste
+# Projekt 4: Todo-Liste
 
 ![image](04-screenshot.png)
 
