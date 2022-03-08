@@ -1,45 +1,13 @@
-# Projekt 4: Todo-Liste
+# Projekt 4.1: Persistente Todo-Liste
 
-![image](04-screenshot.png)
-
-Versucht, das abgebildete Programm selbst zu bauen. Der **weiße** Text ist die Ausgabe des Programms. Der **grüne** Text wird vom Benutzer eingegeben.
-
-Eine Version ohne Persistenz (dafür aber mit der Bonusaufgabe "Löschen") findet ihr in `program.py`.
+Diese Übung basiert auf der Übung https://github.com/Oberschule-an-der-Egge/python-04. Es wird empfohlen letztere Übung zunächst (inklusive der Bonusaufgabe) abzuschließen, bevor die hier vorliegende Übung angegangen wird.
 
 
-## Das könnte dir helfen:
 
-**Listen**
 
-```python
-namen = ['Jule', 'Nils', 'Lena']
-zweiter_namen = namen[1]
-namen.append('Benny')
-# namen -> ['Jule', 'Nils', 'Lena', 'Benny']
-```
+##Problemstellung: Betriebssysteme
 
-Es gibt noch viele weitere Methoden wie `.append()` für den Datentyp "Liste". Du findest sie in der [Python-Dokumentation](https://docs.python.org/3/tutorial/datastructures.html).
 
-**Länge**
-
-`len()` gibt die Länge eines Objekts als Ganzzahl zurück:
-
-```python
-lehrer = ['DRI', 'MAT']
-len(lehrer)
-# -> 2
-```
-
-**Docstrings**
-
-Code kann mit einfachen Kommentaren `#`, aber auch gezielt mit einer Dokumentation versehen werden. Für letzteres gibt es die sogenannten Docstrings, die mit drei doppelten Anführungszeichen begonnen und beendet werden. Sie stehen stets am Anfang einer Funktion:
-
-```python
-def nst_berechnen():
-    """
-    Diese Funktion berechnet die Nullstellen einer mathematischen Funktion.
-    """
-    # ...hier folgt Code...
 ```
 
 **Dateien bearbeiten**
@@ -49,25 +17,58 @@ Betriebssysteme (Windows, MacOS, Linux) benutzen unterschiedliche Pfadangaben. M
 ```python
 import os
     
-dateipfad = os.path.abspath('photo.jpg')
-# -> /home/tim/desktop/photo.jpg (Linux) oder 
-# -> C:\Users\Tim\Desktop\photo.jpg (Windows)
+dateipfad = os.path.abspath('Neue_Textdatei.txt')
+# -> /home/tim/desktop/Neue_Textdatei.txt (Linux) oder 
+# -> C:\Users\Tim\Desktop\Neue_Textdatei.txt (Windows)
 ```
 
-Um Dateien zu schreiben und zu lesen nehmen wir `open()` und den Kontextmanager `with .. as ..:`
+
+##Dateien mit Inhalt erstellen.
+
+
+
+Um Dateien zu schreiben nehmen wir `open()` und den Kontextmanager `with .. as ..:`
 
 ```python
-with open(dateipfad) as datei_in:
-    text = datei_gelesen.readlines()
+with open(dateipfad, "w") as datei_out:
+    datei_out.write("Beliebiger String")
     
     # text -> ['Zeile eins\n', 'Zeile zwei\n', ...]
 ```
 
-```python
-with open(dateipfad) as datei_out:
-    datei_out.write('Zeile eins\n')
+Beachten Sie, dass die Methode `open` zwei Argumente fordert: Zum einen den Dateipfad als string; zum anderen das Argument `"w"`.
+
+
+##Probieren Sie es aus!
+
+Versuchen Sie zunächst eine Textdatei mit beliebiegen Inhalt zu erstellen. Welchen Unterschied macht es, wenn Sie bei `open` statt des Arguments `"w"` das Argument `a` verwenden?
+
+
+##Wenden Sie das erlernte an!
+
+Versuchen Sie nun die in https://github.com/Oberschule-an-der-Egge/python-04 erstellte ToDo-Liste wie folgt zu erweitern:
+
+![image](Todo_Liste_Persistenz.png)
+
+Nach dem beenden des Beispielprogramms sollte eine Textdatei entstanden sein, die wie folgenden Inhalt hat.:
+
+![image](Erstellte ToDo-Datei.png)
+
+#Achtung: `datei_out.write` fordert als Argument einen String. Sollten Sie eine Liste Speichen wollen, müssen Sie diese erst umwandeln.
+
+
+##Vorbereitung für die nächste Übung
+
+Um die Datei laden zu können, ist es sinnvoll die Listeneinträge einzeln untereinander in Ihrer Ausgabedatei zu speichern. Dies gelingt am einfachsten mittels einer Schleife.
+-> Wandeln Sie Ihren Quellcode so ab, dass ihre `Todo.txt` nicht dies:
+
+`['Milch', 'Eier', 'Käse']`
+
+sondern dies enthält:
+
+```
+Milch
+Eier
+Käse
 ```
 
-## Bonusaufgabe:
-
-Die Einträge sollen mit einer Deadline versehen werden: `- Geschenke kaufen [18.12.2020]`
