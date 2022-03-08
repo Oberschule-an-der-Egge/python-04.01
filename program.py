@@ -1,92 +1,91 @@
-def main():
-    """
-    Hauptfunktion, wird am Ende der Datei aufgerufen.
-    """
-    print_title()
-    run_event_loop()
+### Import der Bibliothek os und Festlegen des Zieldateipfads als globale Variable
+import os
+dateipfad = os.path.abspath('Todo.txt')
 
 
-def print_title():
-    """
-    Zeigt den Titel der App.
-    """
-    print('--------------------------------------------')
-    print('                TODO-LISTE')
-    print('--------------------------------------------')
-    print()
 
 
-def run_event_loop():
-    """
-    Eingabeschleife, in der die Befehle Anzeigen, Hinzufügen, Löschen und Beenden aufgerufen werden.
-    todo_liste wird hier erzeugt.
-    """
 
-    cmd_anzeigen = ['a', 'A']
-    cmd_hinzufuegen = ['h', 'H']
-    cmd_loeschen = ['l', 'L']
-    cmd_beenden = ['e', 'E']
+def Say_Hello():
+    ###### Begrüßungstext
+    
+    print("----------------------------------------------------------------------------\n"
+          "                                     TODO-Liste\n"
+          "----------------------------------------------------------------------------\n")
 
-    todo_liste = []
+    print("Wilkommen in deiner Todo-list was möchtest tu tun?")
 
-    print('Willkommen in deiner TODO-Liste! Was möchtest du tun?')
 
-    while True:
-        print()
-        selection = input('Einträge [A]nzeigen, [H]inzufügen, [L]öschen oder B[e]enden? ')
+def Main_loop():
+    
+    
+    #####Hauptschleife
+    
+    userinput = ""
+    todo = []
 
-        if selection in cmd_anzeigen:
-            present(todo_liste)
-        elif selection in cmd_hinzufuegen:
-            add(todo_liste)
-        elif selection in cmd_loeschen:
-            remove(todo_liste)
-        elif selection in cmd_beenden:
-            print()
-            print('Tschüss!')
-            break
+    while userinput != "B":
+        item_on_list = 0
+        items = len(todo)
+        userinput = input("Einträge [A]nzeigen [H]inzufügen [B]eenden [L]öschen, [S]peichern: ")
+        if userinput == "A":
+            Show_list(todo, items, item_on_list)
+        elif userinput == "H":
+            todo = Hinzufuegen_Funktion(todo)
+        elif userinput == "S":
+            #TODO: Hier muss die Funktion zum Speichern aufgerufen werden
+        elif userinput == "L":
+            Show_list(todo, items, item_on_list)
+            todo = Entfernen(todo)
+        elif userinput == "B":
+            Goodbye()
         else:
-            print('Ungültige Eingabe.')
+            Error()
 
 
-def present(todo_liste):
-    """
-    Zeigt, in nummerierter Reihenfolge, die Einträge der aktuellen Liste.
-    :param todo_liste: Benötigt das aktuelle list()-Objekt.
-    """
+def Show_list(todo, items, item_on_list):
+    
+    #### Funktion, um die Liste anzuzeigen
+    
+    print(f"du hast {items} auf deiner liste:")
+    while items > item_on_list:
+        element = todo[item_on_list]
+        print(f"{item_on_list + 1}. {element}")
+        item_on_list = item_on_list + 1
 
-    print(f'Du hast {len(todo_liste)} Einträge auf der Liste.')
-    for index, item in enumerate(todo_liste):
-        print(f'{index} - {item}')
+def Hinzufuegen_Funktion(todo):
+    
+    #### Funktion zum Hinzufügen
+    
+    hinzufuegen = input("Was möchtest du hinzufügen? ")
+    todo.append(hinzufuegen)
+    return todo
 
+def Entfernen(todo):
+    
+    #### Funktion zum Entfernen
+    
+    delete = int(input("Was möchtest du entfernen? "))
+    delete = delete - 1
+    todo.pop(delete)
+    return todo
 
-def add(todo_liste):
-    """
-    Fügt der Liste einen neuen Eintrag hinzu.
-    :param todo_liste: Benötigt das aktuelle list()-Objekt.
-    """
+def Goodbye():
+    
+    #### Abschiedstext
+    
+    print("tschüss")
 
-    entry = input('Neuer Eintrag: ')
-    todo_liste.append(entry)
-    print(f'{entry} wurde hinzugefügt.')
+def Save(###TODO:Welche Variablen müssen übegeben werden?):
+   #TODO: An dieser Stelle muss die Funktion zum Speichern eingebaut werden
 
+def Error():
+    
+    #### Ausnahmebehandlung/Error Exception
+    
+    print("Eingabe nicht erkannt")
 
-def remove(todo_liste):
-    """
-    Löscht einen vom Nutzer gewählten Eintrag aus der Liste.
-    :param todo_liste: Benötigt das aktuelle list()-Objekt.
-    """
-
-    for index, item in enumerate(todo_liste):
-        print(f'{index} - {item}')
-
-    cmd_index = int(input('Was soll gelöscht werden? '))
-
-    if cmd_index <= len(todo_liste) - 1:
-        todo_liste.pop(cmd_index)
-        print(f'Eintrag {cmd_index} wurde gelöscht.')
-    else:
-        print(f'Eingabe "{cmd_index}" unklar. Es wurde nichts gelöscht.')
-
-
-main()
+if __name__ == '__main__':
+    #### Notwendige Hauptmethode zum Aufrufen aller Unterfunktionen
+    Say_Hello()
+    Main_loop()
