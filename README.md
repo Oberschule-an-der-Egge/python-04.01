@@ -52,7 +52,7 @@ Versuchen Sie nun die in https://github.com/Oberschule-an-der-Egge/python-04 ers
 
 Nach dem beenden des Beispielprogramms sollte eine Textdatei entstanden sein, die wie folgenden Inhalt hat.:
 
-![image](Erstellte ToDo-Datei.png)
+![image](ToDo-Datei.png)
 
 #Achtung: `datei_out.write` fordert als Argument einen String. Sollten Sie eine Liste Speichen wollen, müssen Sie diese erst umwandeln.
 
