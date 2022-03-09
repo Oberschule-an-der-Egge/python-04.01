@@ -5,10 +5,9 @@ Diese Übung basiert auf der Übung https://github.com/Oberschule-an-der-Egge/py
 
 
 
-##Problemstellung: Betriebssysteme
+## Problemstellung: Unterschieldiche Betriebssysteme
 
 
-```
 
 **Dateien bearbeiten**
 
@@ -23,7 +22,7 @@ dateipfad = os.path.abspath('Neue_Textdatei.txt')
 ```
 
 
-##Dateien mit Inhalt erstellen.
+## Dateien mit Inhalt erstellen
 
 
 
@@ -39,12 +38,12 @@ with open(dateipfad, "w") as datei_out:
 Beachten Sie, dass die Methode `open` zwei Argumente fordert: Zum einen den Dateipfad als string; zum anderen das Argument `"w"`.
 
 
-##Probieren Sie es aus!
+## Probieren Sie es aus!
 
 Versuchen Sie zunächst eine Textdatei mit beliebiegen Inhalt zu erstellen. Welchen Unterschied macht es, wenn Sie bei `open` statt des Arguments `"w"` das Argument `a` verwenden?
 
 
-##Wenden Sie das erlernte an!
+## Wenden Sie das erlernte an!
 
 Versuchen Sie nun die in https://github.com/Oberschule-an-der-Egge/python-04 erstellte ToDo-Liste wie folgt zu erweitern:
 
@@ -54,13 +53,14 @@ Nach dem beenden des Beispielprogramms sollte eine Textdatei entstanden sein, di
 
 ![image](Todo-Datei.png)
 
-#Achtung: `datei_out.write` fordert als Argument einen String. Sollten Sie eine Liste Speichen wollen, müssen Sie diese erst umwandeln.
+**Achtung:** `datei_out.write` fordert als Argument einen String. Sollten Sie eine Liste Speichen wollen, müssen Sie diese erst umwandeln.
 
 
-##Vorbereitung für die nächste Übung
+## Bonusaufgabe: Praktischer Anwendungsfall
 
-Um die Datei laden zu können, ist es sinnvoll die Listeneinträge einzeln untereinander in Ihrer Ausgabedatei zu speichern. Dies gelingt am einfachsten mittels einer Schleife.
--> Wandeln Sie Ihren Quellcode so ab, dass ihre `Todo.txt` nicht dies:
+Will man die gespeicherte Datei praktisch verwenden, indem man etwa die ToDo-Liste druckt, ist es sinnvoll die Listeneinträge einzeln untereinander in der Ausgabedatei zu speichern. Dies gelingt am einfachsten mittels einer Schleife.
+
+**Aufgabe** -> Wandeln Sie Ihren Quellcode so ab, dass ihre `Todo.txt` nicht dies:
 
 `['Milch', 'Eier', 'Käse']`
 
